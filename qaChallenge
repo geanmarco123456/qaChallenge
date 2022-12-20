@@ -1,0 +1,56 @@
+
+Se realiza pruebas automatizadas de login con Selenium y Python
+	
+ credenciales correctas:
+	username= admin@hotmail.com
+	password = admin123456
+
+Prueba 1= Se ingresa un correo sin el @ (usuario incorrecto)
+	//Se declaran las librerias que se utilizan
+
+			From Selenium impor webdriver
+			from selenium.webdriver.common.by import by
+			tiempo=10
+		
+		d=webdriver.chrome(executable_path="c:\drivers\chromedriver.exe")
+		d.get("https://paginadelogin/login")
+
+	//se maximiza la pantalla
+		d.maximixe_window()
+	//tiempo para mantener la ventana abierta
+		time.sleep(tiempo)
+	// nombre de usuario, se ingresa sin el @ y validar que no ingrese (se obtiene desde el xpath)
+		user=d.find_element(By.XPATH "//input[contains(@name,'username')]").send_keys("correodepruebahotmail.com")
+	//campo contraseña y se ingresa la contraseña correcta
+		pass=d.find_element(By.XPATH "//input[contains(@type,'password')]").send_keys("admin123456")
+	//Boton para ingresar
+		btn=d.find_element(By.XPATH,"//button[@type='submit'][contains(.,'login')]")
+		btn.click()   
+	// se cierra la ventana
+		d.close()
+
+
+Prueba 2= Se ingresa las credenciales correctas
+
+		//Se declaran las librerias que se utilizan
+
+			From Selenium impor webdriver
+			from selenium.webdriver.common.by import by
+			tiempo=10
+		
+		d=webdriver.chrome(executable_path="c:\drivers\chromedriver.exe")
+		d.get("https://paginadelogin/login")
+
+	//se maximiza la pantalla
+		d.maximixe_window()
+	//tiempo para mantener la ventana abierta
+		time.sleep(tiempo)
+	// nombre de usuario, se ingresa sin el @ y validar que no ingrese (se obtiene desde el xpath)
+		user=d.find_element(By.XPATH "//input[contains(@name,'username')]").send_keys("admin@hotmail.com")
+	//campo contraseña y se ingresa la contraseña correcta
+		pass=d.find_element(By.XPATH "//input[contains(@type,'password')]").send_keys("admin123456")
+	//Boton para ingresar
+		btn=d.find_element(By.XPATH,"//button[@type='submit'][contains(.,'login')]")
+		btn.click()   
+	// se cierra la ventana
+		d.close()
